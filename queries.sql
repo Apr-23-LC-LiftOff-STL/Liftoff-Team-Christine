@@ -10,7 +10,7 @@ SELECT id, employer, name, skills  from job;
 --  write a query to list the names of the employers in St. Louis City.
 --  Do NOT specify an ordering for the query results.
 
-SELECT name from job where employer = 'St. Louis City';
+SELECT name from employer where location = "St. Louis City";
 
 
 
@@ -20,8 +20,12 @@ SELECT name from job where employer = 'St. Louis City';
 DROP TABLE job;
 
 -- Part 4: Test it with SQL
-SELECT name from job.skills order by name asc;
 
+
+SELECT * FROM skill
+INNER JOIN job_skills ON skill.id = job_skills.skills_id
+WHERE job_skills.jobs_id IS NOT NULL
+ORDER BY name ASC;
 
 
 -- write a query to return the names of all skills
