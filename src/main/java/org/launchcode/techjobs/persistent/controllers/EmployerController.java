@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -43,10 +44,29 @@ public class EmployerController {
     @PostMapping("add")
     public String processAddEmployerForm(@ModelAttribute @Valid Employer newEmployer,
                                     Errors errors, Model model) {
+        //add a statement blocking duplicates
+        employerRepository.findAll().forEach(employer -> {
+            if (Objects.equals(employer.getName(), newEmployer.getName())) {
+                errors.rejectValue("name", "invalid", "This employer name already exists.");
+            }
+        });
+
         if (errors.hasErrors()) {
             return "employers/add";
         }
-        employerRepository.save(newEmployer);
+
+        //add catch error in case database fails to save. Alert user that failed to save due to network error and to try again later.
+        //you can test this error by temporarily setting savedEntity = null.
+        //our error message isn't ideal at present, it shows under the employer.name value rather than at the top as a global error. Struggling to fix it.
+        Employer savedEntity = employerRepository.save(newEmployer);
+        if (savedEntity == null) {
+            errors.rejectValue("name", "invalid", "We are having network issues, please try again later.");
+        }
+
+        if (errors.hasErrors()) {
+            return "employers/add";
+        }
+
         return "redirect:";
     }
 
