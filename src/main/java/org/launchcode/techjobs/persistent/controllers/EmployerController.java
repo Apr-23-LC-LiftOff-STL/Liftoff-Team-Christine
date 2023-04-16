@@ -36,11 +36,6 @@ public class EmployerController {
         return "employers/add";
     }
 
-
-//    processAddEmployerForm already takes care of sending the form back if
-//    any of the submitted employer object information is invalid.
-//        However, it doesn’t yet contain the code to save a valid object.
-//    Use employerRepository and the appropriate method to do so.
     @PostMapping("add")
     public String processAddEmployerForm(@ModelAttribute @Valid Employer newEmployer,
                                     Errors errors, Model model) {
@@ -56,8 +51,8 @@ public class EmployerController {
         }
 
         //add catch error in case database fails to save. Alert user that failed to save due to network error and to try again later.
-        //you can test this error by temporarily setting savedEntity = null.
-        //our error message isn't ideal at present, it shows under the employer.name value rather than at the top as a global error. Struggling to fix it.
+        //PS: you can test this error by temporarily setting savedEntity = null.
+        //our error message isn't ideal at present, it shows under the name field rather than at the top as a global error. Struggling to fix it.
         Employer savedEntity = employerRepository.save(newEmployer);
         if (savedEntity == null) {
             errors.rejectValue("name", "invalid", "We are having network issues, please try again later.");

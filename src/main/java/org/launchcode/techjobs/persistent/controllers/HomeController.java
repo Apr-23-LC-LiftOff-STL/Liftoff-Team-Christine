@@ -47,9 +47,7 @@ public class HomeController {
         return "add";
     }
 
-//    add code inside of this method to select the employer object that has been chosen to
-//    be affiliated with the new job. You will need to select the employer using the request
-//    parameter you’ve added to the method.
+
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                     Errors errors, Model model, @RequestParam int employerId,
@@ -58,8 +56,8 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
-        //added in part 3, struggling to understand
-        //review Optional class plz
+
+        //review Optional class, not sure how below functions
         Optional <Employer> optEmployer = employerRepository.findById(employerId);
             if (optEmployer.isPresent()) {
                 Employer employer = optEmployer.get();

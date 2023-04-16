@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 public class Job extends AbstractEntity {
 
+    //set relationships to other models
     @ManyToOne
     private Employer employer;
 
@@ -18,6 +19,7 @@ public class Job extends AbstractEntity {
     @ManyToMany
     private List<Skill> skills = new ArrayList<>();
 
+    //constructors
     public Job() {
     }
 
