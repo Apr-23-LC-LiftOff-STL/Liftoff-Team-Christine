@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'Job: ' + job.name}">Default Title</h1>
+<h1 th:text="${'models.org.launchcode.qleanquotes.persistent.Job: ' + job.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
 
@@ -11,7 +11,7 @@
     <p th:text="${'ID: ' + job.id}"></p>
     <p th:text="${'Name: ' + job.name}"></p>
     <p>
-        Employer: <a th:href="@{'/employers/view/' + ${job.employer.id}}" th:text="${job.employer.name}"></a>
+        models.org.launchcode.qleanquotes.persistent.Employer: <a th:href="@{'/employers/view/' + ${job.employer.id}}" th:text="${job.employer.name}"></a>
     </p>
     <p> Skills:
         <ul>

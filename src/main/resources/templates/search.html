@@ -41,12 +41,12 @@
         <tr th:each="job : ${jobs}">
             <td>
                 <p>
-                    Job Id:
+                    models.org.launchcode.qleanquotes.persistent.Job Id:
                     <a th:href="@{'/view/' + ${job.id}}" th:text="${job.id}"></a>
                 </p>
                 <p th:text="${'Name: ' + job.name}"></p>
                 <p>
-                    Employer:
+                    models.org.launchcode.qleanquotes.persistent.Employer:
                     <a th:href="@{'/employers/view/' + ${job.employer.id}}" th:text="${job.employer.name}"></a>
                 </p>
                 <p>

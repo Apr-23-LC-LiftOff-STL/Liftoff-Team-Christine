@@ -1,4 +1,6 @@
-package org.launchcode.techjobs.persistent.models;
+package org.launchcode.qleanquotes.persistent.models;
+
+//package org.launchcode.techjobs.persistent.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

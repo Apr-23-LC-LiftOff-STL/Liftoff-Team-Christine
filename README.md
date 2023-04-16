@@ -25,24 +25,24 @@ The starter code contains 6 unit test classes.
 `TestTaskTwo` has over 25 tests and covers all of Part 2.  If this class of tests fails, students need to carefully explore the test results for where an error occured.  
 
 This test class verifies the following:
-   * `AbstractEntity` - Does it exisit? How does it handle names and IDs?
-   * Model Tests such as `Employer` and `Skill` - Do they contain the correct fields, correct accessors, correct validation annotations, constructors, and persistence.
-   * The Data Layer - Do `EmployerRepository` and `SkillRepository` exisit?  Do theese repos implement CrudRepository? 
+   * `models.org.launchcode.qleanquotes.persistent.AbstractEntity` - Does it exisit? How does it handle names and IDs?
+   * Model Tests such as `models.org.launchcode.qleanquotes.persistent.Employer` and `models.org.launchcode.qleanquotes.persistent.Skill` - Do they contain the correct fields, correct accessors, correct validation annotations, constructors, and persistence.
+   * The Data Layer - Do `data.models.org.launchcode.qleanquotes.persistent.EmployerRepository` and `data.models.org.launchcode.qleanquotes.persistent.SkillRepository` exisit?  Do theese repos implement CrudRepository? 
    * Controller Tests - Do EmployerController.index and SkillController.index route properly? Does it properly handle data inputs, routing, `findAll()` and `findById()` methods, and storing data?
    * SQL Tests - Can it select based on name? 
 
 `TestTaskThree` verifies the following: 
-* `Employer.jobs` has been properly defined and annotated
-* `AbstractEntity` has been properly extended
-* Many-to-one pattern created between `Job.employer` and `Employer`
-* `HomeController` has an autowired `EmployerRepository` is able to call `employerRepository.findALL()`.
+* `models.org.launchcode.qleanquotes.persistent.Employer.jobs` has been properly defined and annotated
+* `models.org.launchcode.qleanquotes.persistent.AbstractEntity` has been properly extended
+* Many-to-one pattern created between `models.org.launchcode.qleanquotes.persistent.Job.employer` and `models.org.launchcode.qleanquotes.persistent.Employer`
+* `HomeController` has an autowired `data.models.org.launchcode.qleanquotes.persistent.EmployerRepository` is able to call `employerRepository.findALL()`.
 * SQL test to drop a table
 
 `TestTaskFour` verifies the following:
-* `Skill.jobs` exists as a type List and has a many-to-many relationship
-* `Job.skills` has been refactored to a `List<Skills>`
+* `models.org.launchcode.qleanquotes.persistent.Skill.jobs` exists as a type List and has a many-to-many relationship
+* `models.org.launchcode.qleanquotes.persistent.Job.skills` has been refactored to a `List<Skills>`
 * `Skills` has been properly refactored with correct accessors
-* `HomeController` has a `SkillRepository`, and can handle a form 
+* `HomeController` has a `data.models.org.launchcode.qleanquotes.persistent.SkillRepository`, and can handle a form 
 * `ListController` has autowired repos, can set field data
 * A SQL test that creates a join.
 
@@ -55,10 +55,10 @@ The app occasionally restarts, so if you experience any issues, please wait a fe
 
 Use the checks below to explore the working app.
 
-1. Start the application and navigate to the *Add Job* view.
+1. Start the application and navigate to the *Add models.org.launchcode.qleanquotes.persistent.Job* view.
 1. Create a new employer from the form and view the resulting object in the employer table.
 1. Create at least two new skills from the form and view the objects in the skill table.
-1. Create a new Job from the form, selecting at least two skills. 
+1. Create a new models.org.launchcode.qleanquotes.persistent.Job from the form, selecting at least two skills. 
 
    a. Once created, view the job table and verify that there is an ``employer_id`` column in it. 
      
