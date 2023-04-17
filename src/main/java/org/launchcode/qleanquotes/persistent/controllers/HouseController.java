@@ -6,6 +6,7 @@ import org.launchcode.qleanquotes.persistent.models.data.ClientRepository;
 import org.launchcode.qleanquotes.persistent.models.data.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import java.util.Objects;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -44,6 +45,29 @@ public class HouseController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add House");
+            return "add";
+        }
+
+        //add a statement blocking duplicates
+        houseRepository.findAll().forEach(house -> {
+            if (Objects.equals(house.getName(), newHouse.getName())) {
+                errors.rejectValue("name", "invalid", "This house already exists.");
+            }
+        });
+
+        if (errors.hasErrors()) {
+            return "add";
+        }
+
+        //add catch error in case database fails to save. Alert user that failed to save due to network error and to try again later.
+        //you can test this error by temporarily setting savedEntity = null.
+        //our error message isn't ideal at present, it shows under the house.name value rather than at the top as a global error. Struggling to fix it.
+        House savedEntity = houseRepository.save(newHouse);
+        if (savedEntity == null) {
+            errors.rejectValue("name", "invalid", "We are having network issues, please try again later.");
+        }
+
+        if (errors.hasErrors()) {
             return "add";
         }
 

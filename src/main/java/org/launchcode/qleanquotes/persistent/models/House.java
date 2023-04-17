@@ -25,7 +25,6 @@ public class House extends AbstractEntity{
     @Max(value = 100, message = "We ain't qleaning that.")
     private Integer numberOfRooms;
 
-
     //set relationships to other models
     @ManyToOne
     private Client client;
