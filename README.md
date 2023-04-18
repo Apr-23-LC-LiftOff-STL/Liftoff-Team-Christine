@@ -1,70 +1,37 @@
-# Java Graded Assignment #4 Rubric (TechJobs, Persistent Edition)
+## Submission Instructions
 
-For [this assignment](https://education.launchcode.org/java-web-development/assignments/tech-jobs-persistent.html) students are tested for their understanding of SQL database management and the mechanics of object relational mapping. Students will demonstrate their knowledge of these topics by making updates again to the TechJobs application.
-They will be asked to create the database connection, finish what has been started to persist several model classes, 
-create a one-to-many and a many-to-many relationship between objects, and answer a few simple SQL questions.
+ ### Overview
+ Include overview here
+ Our group will be working on a project about housekeeping. The project's name is Qlean Quotes.
+ Our app is going to provide an user login that user will be able to schedule, purchase 
+ the packages with discounts, select the providers and pay for the package directly from the app.
+ When users signed up, they will enter the required info and see the estimate. Once paid,
+ user can view all orders/paid invoices. Also, user will be able to leave a feedback.
 
-Grading will be done via demonstrations. Students will be asked to give a walkthrough of their source code,
-as well as the running application.
+ ### Features
+ Include Features here
+ User login : Users will be able to create accounts and log in to the application.Each user will have a profile page.
+ Payment option / Secure payment : Personal information is protected during payment processing.
+ Calendar/Instant Booking : User will be able to see availability on the calendar to book.
+ Calculates Quote : Calculating of the price to provide to user based on given information (square foot, rooms, level of cleanliness).
+ Feedback : User will be able to create a comment/feedback.
 
-## Assignment Requirements
+ ### Technologies
+ Include Technologies here
+ JavaScript
+ Angular
+ HTML
+ CSS
+ Java
+ Spring Boot
+ MySQL
 
-1. Connect a `Database` to a Spring Application
-2. Persist `Employers` and `Skills`
-3. Set up a `One-to-Many` Relationship
-4. Set up a `Many-to-Many` Relationship
+ ### What I'll Have to Learn
+ Include what you will need to learn here
+ Spring Security, 
+ Stripe Checkout,
+ And we will need to learn how to connect front-end and back-end
 
-## Unit Tests
-
-The starter code contains 6 unit test classes.
-
-`TestTaskOne` verifies two things: 
-   * Connection between database and data
-   * Correct gradle dependencies have been added
-
-`TestTaskTwo` has over 25 tests and covers all of Part 2.  If this class of tests fails, students need to carefully explore the test results for where an error occured.  
-
-This test class verifies the following:
-   * `models.org.launchcode.qleanquotes.persistent.AbstractEntity` - Does it exisit? How does it handle names and IDs?
-   * Model Tests such as `models.org.launchcode.qleanquotes.persistent.Employer` and `models.org.launchcode.qleanquotes.persistent.Skill` - Do they contain the correct fields, correct accessors, correct validation annotations, constructors, and persistence.
-   * The Data Layer - Do `data.models.org.launchcode.qleanquotes.persistent.EmployerRepository` and `data.models.org.launchcode.qleanquotes.persistent.SkillRepository` exisit?  Do theese repos implement CrudRepository? 
-   * Controller Tests - Do EmployerController.index and SkillController.index route properly? Does it properly handle data inputs, routing, `findAll()` and `findById()` methods, and storing data?
-   * SQL Tests - Can it select based on name? 
-
-`TestTaskThree` verifies the following: 
-* `models.org.launchcode.qleanquotes.persistent.Employer.jobs` has been properly defined and annotated
-* `models.org.launchcode.qleanquotes.persistent.AbstractEntity` has been properly extended
-* Many-to-one pattern created between `models.org.launchcode.qleanquotes.persistent.Job.employer` and `models.org.launchcode.qleanquotes.persistent.Employer`
-* `HomeController` has an autowired `data.models.org.launchcode.qleanquotes.persistent.EmployerRepository` is able to call `employerRepository.findALL()`.
-* SQL test to drop a table
-
-`TestTaskFour` verifies the following:
-* `models.org.launchcode.qleanquotes.persistent.Skill.jobs` exists as a type List and has a many-to-many relationship
-* `models.org.launchcode.qleanquotes.persistent.Job.skills` has been refactored to a `List<Skills>`
-* `Skills` has been properly refactored with correct accessors
-* `HomeController` has a `data.models.org.launchcode.qleanquotes.persistent.SkillRepository`, and can handle a form 
-* `ListController` has autowired repos, can set field data
-* A SQL test that creates a join.
-
-`TestCommentedTests` verifies that the correct number of tests have been uncommented. 
-
-### Performance and Code Check:
-
-Before you start coding, check out our [Working Demo App](https://techjobs-persistent.launchcodetechnicaltraining.org/).
-The app occasionally restarts, so if you experience any issues, please wait a few minutes before refreshing the page.
-
-Use the checks below to explore the working app.
-
-1. Start the application and navigate to the *Add models.org.launchcode.qleanquotes.persistent.Job* view.
-1. Create a new employer from the form and view the resulting object in the employer table.
-1. Create at least two new skills from the form and view the objects in the skill table.
-1. Create a new models.org.launchcode.qleanquotes.persistent.Job from the form, selecting at least two skills. 
-
-   a. Once created, view the job table and verify that there is an ``employer_id`` column in it. 
-     
-   b. Confirm that a mapped table is present for ``job_skills`` and that at least two rows are now in it
-      for the job just created.
-
-## Submitting Your Work
-
-To submit your work please follow the [Submission Instructions](https://education.launchcode.org/java-web-development/assignments/hello-world.html#submitting-your-work)
+ ### Project Tracker
+ Link to your Trello board here
+ https://trello.com/b/69tSr3fF/qleanquotes
